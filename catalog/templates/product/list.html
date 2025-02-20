@@ -6,6 +6,7 @@
 {% block content %}
     <div>
     <h1>Каталог товаров</h1>
+    <hr>
     {%  if user.is_authenticated %}
         <p>Привет, {{ user.username }}!</p>
     {% endif %}
