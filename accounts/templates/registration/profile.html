@@ -20,5 +20,9 @@
 {{ user.profile.birth_date}}
 </div>
 <hr>
+<form action="{% url 'accounts:logout_view' %}" method="post">
+    {% csrf_token %}
+    <button type="submit">Выйти</button>
+</form>
 </body>
 </html>
