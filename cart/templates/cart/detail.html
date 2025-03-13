@@ -24,11 +24,17 @@
     <td>{{ item.quantity }}</td>
     <td>{{ item.price }} $</td>
     <td>{{ item.total_price }} $</td>
+    <td>
+        <form action="{% url "cart:cart_remove" product.id %}" method="post">
+            <input type="submit" value="Удалить">
+            {% csrf_token %}
+        </form>
+    </td>
 </tr>
 {% endwith %}
 {% endfor %}
 <tr>
-    <td colspan="4">{{ cart.get_total_price }}</td>
+    <td colspan="5">{{ cart.get_total_price }}</td>
 </tr>
 </tbody>
 </table>
