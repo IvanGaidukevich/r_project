@@ -3,6 +3,8 @@ from django.contrib.auth.decorators import login_required
 from accounts.forms import CustomAuthenticationForm, CustomUserCreationForm
 from django.contrib.auth import authenticate, login, logout
 
+from orders.models import Order
+
 
 def login_view(request):
     if request.method == 'POST':
