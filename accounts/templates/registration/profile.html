@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Профиль {{ user.username }}</title>
+</head>
+<body>
+<h2>Профиль</h2>
+<hr>
+<div>
+{{ user.username }}
+</div>
+<div>
+{{ user.email }}
+</div>
+<div>
+{{ user.profile.tel }}
+</div>
+<div>
+{{ user.profile.birth_date}}
+</div>
+<hr>
+<form action="{% url 'accounts:logout_view' %}" method="post">
+    {% csrf_token %}
+    <button type="submit">Выйти</button>
+</form>
+</body>
+</html>
