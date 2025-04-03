@@ -3,7 +3,7 @@ from cart.cart import Cart
 from orders.models import Order, OrderItem
 from orders.forms import OrderCreationForm
 from django.contrib.auth.decorators import login_required
-from orders.tasks import sent_email_after_order_created
+from orders.tasks import sent_email_after_order_created_with_attachment
 
 
 @login_required
@@ -23,7 +23,7 @@ def order_create(request):
                     quantity=item['quantity']
             )
             cart.clear()
-            sent_email_after_order_created.delay(order.id)
+            sent_email_after_order_created_with_attachment.delay(order.id)
             return render(request, "orders/order/success.html",
                           context={'order': order})
     else:
